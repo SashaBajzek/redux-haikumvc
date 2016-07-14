@@ -37,6 +37,7 @@
     "immutable": "^3.8.1",
     "react": "^15.2.1",
     "react-addons-pure-render-mixin": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "redux": "^3.5.2"
   }
 }
