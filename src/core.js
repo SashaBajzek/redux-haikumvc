@@ -7,6 +7,7 @@ export function setHaikus(state, haikus) {
 							.set('currentId', 0);
 }
 
+/*
 export function next(state) {
 	return state.updateIn(
 		['currentId'],
@@ -14,3 +15,4 @@ export function next(state) {
 		currentId => currentId + 1;
 	);
 };
+*/

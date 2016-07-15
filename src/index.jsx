@@ -1,11 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {fromJS, List, Map} from 'immutable';
-import makeStore from './src/store';
+
+import makeStore from './store';
+
+/*
+import {startServer} from './src/server';
+*/
 
 import HaikuApp from './components/HaikuApp';
 
 export const store = makeStore();
+
+store.dispatch({
+	type: 'SET_HAIKUS',
+	haikus: require('./haikus.json')
+});
+
+
+
+/*
+startServer(store);
+*/
 
 const haikus = fromJS(
 	[{id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"},

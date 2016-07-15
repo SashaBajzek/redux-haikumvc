@@ -11,14 +11,9 @@ export default class HaikuApp extends React.Component {
 		super(props);
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	}
-	
-	//I couldn't get the JS className to be added to the string className (it kept turning the JS into a string before it actually got the value), so I made this function to combine the two.  Would like to know if there is a better way?
-	getCombinedClasses() {
-		return this.props.haikus.get(this.props.currentId).get('haikuTheme') + " haikuApp themes";
-	}	
-	
+
 	render() {
-		return <div className={this.getCombinedClasses()}>
+		return <div className={this.props.haikus.get(this.props.currentId).get('haikuTheme') + " haikuApp themes"}>
 			<header>
 				<h2 className="brand">HAIKU FOR YOU</h2>		
 				<SubmitButton />
