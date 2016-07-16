@@ -22,17 +22,17 @@ describe('reducer', () => {
 					Map({id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"}),	
 					Map({id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"})
 					),
-				currentId: 0;
+				currentId: 0
 			});
 		const action = {type: 'NEXT'};
-		const nextState = reducer(initialState);
+		const nextState = reducer(initialState, action);
 		
 		expect(nextState).to.equal(Map({
 				haikus: List.of(
 					Map({id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"}),	
 					Map({id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"})
 					),
-				currentId: 1;
+				currentId: 1
 			}));
 	});
 	
