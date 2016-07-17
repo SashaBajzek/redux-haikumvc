@@ -9,7 +9,7 @@ export default class MoreButton extends React.Component {
 	render() {
 		// The onClick handler will call the nextHaiku function given in the props
 		return <button className = "more"
-						 			onClick = {() => this.props.nextHaiku()}>
+						 		/*	onClick = {() => this.props.nextHaiku()} */>
 			MORE HAIKUS
 		</button>
 		
