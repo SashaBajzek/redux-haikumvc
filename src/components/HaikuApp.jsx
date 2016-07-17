@@ -12,13 +12,11 @@ export class HaikuApp extends React.Component {
 		super(props);
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	}
-
-	/*{this.props.haikus.get(this.props.currentId).get('haikuTheme') + " haikuApp themes"}*/
 	
 	render() {
 		return <div className={this.props.haikuTheme + " haikuApp themes"}>
 			<header>
-				<h2 className="brand">HAIKU FOR YOU</h2>		
+				<h2 className="brand">HAIKU FOR YOU</h2>	
 				<SubmitButton />
 			</header>	
 
@@ -27,7 +25,6 @@ export class HaikuApp extends React.Component {
 			<footer>
 				<MoreButton />
 			</footer>
-
 		</div>
 	}
 	
@@ -35,8 +32,6 @@ export class HaikuApp extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		haikus: state.get('haikus'),
-		currentId: state.get('currentId'),
 		haikuTheme: state.getIn(['haikus',state.get('currentId'),'haikuTheme'])
 	};
 }
