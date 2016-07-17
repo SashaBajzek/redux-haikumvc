@@ -5,7 +5,7 @@ import {
 	scryRenderedDOMComponentsWithTag,
 	Simulate
 } from 'react-addons-test-utils';
-import MoreButton from '../../src/components/MoreButton';
+import {MoreButton} from '../../src/components/MoreButton';
 import {expect} from 'chai';
 
 describe('MoreButton', () => {
@@ -20,10 +20,22 @@ describe('MoreButton', () => {
 		expect(button[0].textContent).to.equal('MORE HAIKUS');
 	});
 	
-	/*
-	it('invokes a callback when the more button is clicked', () => {
+	
+	it('invokes a callback when the button is clicked', () => {
+		var currentId = 0;
 		
+		//Define a mock next function
+		
+		const next = () => currentId = 1;
+		const component = renderIntoDocument(
+      <MoreButton next={next}/>
+    );
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+    Simulate.click(buttons[0]);
+
+    // We verify that the next function has been called
+    expect(currentId).to.equal(1);
 	});
 	
-	*/
+	
 });

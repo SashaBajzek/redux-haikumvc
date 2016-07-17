@@ -1,7 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {connect} from 'react-redux';
+import next from '../action_creators';
 
-export default class MoreButton extends React.Component {
+export class MoreButton extends React.Component {
 	constructor(props) {
 		super(props);
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -9,9 +11,11 @@ export default class MoreButton extends React.Component {
 	render() {
 		// The onClick handler will call the nextHaiku function given in the props
 		return <button className = "more"
-						 		/*	onClick = {() => this.props.nextHaiku()} */>
+						 			onClick = {this.props.next} >
 			MORE HAIKUS
 		</button>
 		
 	}
 };
+
+export const MoreButtonContainer = connect(next)(MoreButton);
