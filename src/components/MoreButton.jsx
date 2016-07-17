@@ -9,12 +9,10 @@ export class MoreButton extends React.Component {
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	}
 	render() {
-		// The onClick handler will call the nextHaiku function given in the props
 		return <button className = "more"
 						 			onClick = {this.props.next} >
 			MORE HAIKUS
 		</button>
-		
 	}
 };
 

@@ -9,9 +9,20 @@ export function setHaikus(state, haikus) {
 
 
 export function next(state) {
-	return state.updateIn(
+	
+	var totalHaikus = state.get('haikus').size - 1;
+	
+	if (state.get('currentId') < totalHaikus){
+		return state.updateIn(
 		['currentId'],
-		0,
+		0,  //in case currentId is undefined
 		currentId => currentId + 1
+		);
+	} 
+		return state.updateIn(
+		['currentId'],
+		0,  //in case currentId is undefined
+		currentId => 0
 	);
+	
 };
