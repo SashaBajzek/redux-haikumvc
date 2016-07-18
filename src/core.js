@@ -20,9 +20,12 @@ var shuffle = function (array) {
 export function setHaikus(state, haikus) {
 	
 	//Add randomizer for haikus array
-	var haikusRandom = shuffle(haikus);
+	//var haikusRandom = shuffle(haikus);
 	
-	return state.set('haikus', fromJS(haikusRandom))
+	//return state.set('haikus', fromJS(haikusRandom))
+	//						.set('currentId', 0);
+	
+	return state.set('haikus', fromJS(haikus))
 							.set('currentId', 0);
 }
 

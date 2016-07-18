@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Route} from 'react-router';
 import {fromJS, List, Map} from 'immutable';
 import makeStore from './store';
 import {Provider} from 'react-redux';
@@ -24,6 +25,8 @@ startServer(store);
 */
 
 require("./stylesheets/style.css");
+
+//Need to add routing for haiku page vs admin page
 	
 ReactDOM.render(
 	<Provider store={store}>
