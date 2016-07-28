@@ -13,7 +13,7 @@ describe('application logic', () => {
 			{id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"}]);
 			const nextState = setHaikus(state, haikus);
 			expect(nextState).to.equal(Map({
-				haikus: List.of(
+				haikusList: List.of(
 					Map({id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"}),	
 					Map({id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"})
 					),
@@ -27,7 +27,7 @@ describe('application logic', () => {
 			{id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"}];
 			const nextState = setHaikus(state, haikus);
 			expect(nextState).to.equal(Map({
-				haikus: List.of(
+				haikusList: List.of(
 					Map({id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"}),	
 					Map({id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"})
 					),
@@ -41,7 +41,7 @@ describe('application logic', () => {
 		
 		it('increments currentId', () => {
 			const state = Map({
-				haikus: List.of(
+				haikusList: List.of(
 					Map({id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"}),	
 					Map({id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"})
 					),
@@ -49,7 +49,7 @@ describe('application logic', () => {
 			});
 			const nextState = next(state);
 			expect(nextState).to.equal(Map({
-				haikus: List.of(
+				haikusList: List.of(
 					Map({id: 1, haikuLine1: "trying to wake up", haikuLine2: "coffee is my addiction", haikuLine3: "how i love it so", haikuTheme: "coffeeTheme"}),	
 					Map({id: 2, haikuLine1: "making my first site", haikuLine2: "learning new technologies", haikuLine3: "i hope you like it", haikuTheme: "technologyTheme"})
 					),
