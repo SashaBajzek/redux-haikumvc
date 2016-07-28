@@ -1,5 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {SubmitHaikuModalContainer} from './SubmitHaikuModal';
+import {connect} from 'react-redux';
+import openModal from '../action_creators';
+import {Button, ControlLabel, FormControl, FormGroup, Modal, show, onHide, keyboard, enforceFocus, bsClass, dialogComponentClass, dialogClassName} from 'react-bootstrap';
 
 export default class SubmitButton extends React.Component {
 	constructor(props) {
@@ -7,12 +11,34 @@ export default class SubmitButton extends React.Component {
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	}
 	render() {
-		return <button className="submit">
+		return <button className="submit"
+						 onClick = {this.props.openModal}>
 			SUBMIT A HAIKU
-		</button>	
+			</button>
+
 		
+
+			
+			
 	}
 };
+
+/*
+function mapStateToProps(state) {
+	return {
+		showModal: state.modal.getIn(['showModal'])
+	};
+}
+
+
+export const SubmitButtonContainer = connect(mapStateToProps, openModal)(SubmitButton);
+
+*/
+
+export const SubmitButtonContainer = connect(openModal)(SubmitButton);
+
+
+
 
 
 /*

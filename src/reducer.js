@@ -1,14 +1,31 @@
-import {setHaikus, next, INITIAL_STATE} from './core';
+import { fromJS, List, Map } from 'immutable';
+import { next, setHaikus, setModal, openModal, closeModal } from './core';
 
-export default function reducer(state = INITIAL_STATE, action) {
-	//Figure out which function to call and call it
+export function reducerHaikus(state = Map(), action) {
 	switch (action.type) {
-		// This action
 		case 'SET_HAIKUS':
-			// should cause this to happen
-			return setHaikus(state, action.haikus);
+			return setHaikus(state, action.haikusList);
 		case 'NEXT':
 			return next(state);
+		case 'ADD_HAIKU':
+			//return addHaiku(state, action.haiku);
+			return state;
+		case 'DELETE_HAIKU':
+			//return deleteHaiku(state, action.haikuId);
+			return state;
 	}
 	return state;
 }
+
+export function reducerModal(state = Map(), action) {
+	switch (action.type) {
+		case 'SET_MODAL':
+			return setModal(state);
+		case 'OPEN_MODAL':
+			return openModal(state);
+		case 'CLOSE_MODAL':
+			return closeModal(state);
+	}
+	return state;
+}
+

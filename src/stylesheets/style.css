@@ -87,8 +87,6 @@ main:hover,
 	border: 1px solid;
 }
 
-
-
 .beachTheme {
 	background: skyblue;
 	background-image: url("../images/beach_sm.jpg");
@@ -520,6 +518,17 @@ main:hover,
 }
 
 /* Modal Classes */
+
+
+/* Class for react-bootstrap modal */
+.modal-container {
+  position: relative;
+}
+
+/* Class for react-bootstrap modal */
+.modal-container .modal, .modal-container .modal-backdrop {
+  position: absolute;
+}
 
 .close {
 	transition: all 4s ease-out;

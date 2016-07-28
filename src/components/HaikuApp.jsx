@@ -1,11 +1,11 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {List, Map} from 'immutable';
+import {connect} from 'react-redux';
 import {HaikuContainer} from './Haiku';
 import {MoreButtonContainer} from './MoreButton';
-import SubmitButton from './SubmitButton';
-import {connect} from 'react-redux';
-
+import SubmitButtonContainer from './SubmitButton';
+import {SubmitHaikuModalContainer} from './SubmitHaikuModal';
 import * as actionCreators from '../action_creators';
 
 export class HaikuApp extends React.Component {
@@ -19,7 +19,8 @@ export class HaikuApp extends React.Component {
 		return <div className={this.props.haikuTheme + " haikuApp themes"}>
 			<header>
 				<h2 className="brand">HAIKU FOR YOU</h2>	
-				<SubmitButton />
+				<SubmitButtonContainer {...this.props}/>
+				
 			</header>	
 
 			<HaikuContainer />
@@ -27,6 +28,9 @@ export class HaikuApp extends React.Component {
 			<footer>
 				<MoreButtonContainer {...this.props}/>
 			</footer>
+			
+			<SubmitHaikuModalContainer {...this.props}/>
+			
 		</div>
 	}
 	
@@ -34,7 +38,7 @@ export class HaikuApp extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		haikuTheme: state.getIn(['haikus',state.get('currentId'),'haikuTheme'])
+		haikuTheme: state.haikus.getIn(['haikusList', state.haikus.getIn(['currentId']), 'haikuTheme'])
 	};
 }
 
