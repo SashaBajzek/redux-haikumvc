@@ -3,7 +3,7 @@ import {reduxForm} from 'redux-form';
 import {Button, ControlLabel, FormControl, FormGroup, Modal} from 'react-bootstrap';
 
 
-export class SubmitForm extend React.Component {
+export class SubmitForm extends React.Component {
 	render() {
 		const {fields: {haikuLine1, haikuLine2, haikuLine3, haikuTheme}, handleSubmit} = this.props;
 		return <form  name="createHaikuForm" onSubmit={handleSubmit}>
@@ -46,7 +46,7 @@ export class SubmitForm extend React.Component {
 				</Modal.Body>
 				<Modal.Footer className="modal-footer">
 					<Button  className="btn btn-default" >CLOSE</Button>
-					<Button className="btn btn-primary">SUBMIT HAIKU</Button>
+					<Button className="btn btn-primary" type="submit">SUBMIT HAIKU</Button>
 				</Modal.Footer>
 			</form>	
 		
@@ -54,47 +54,7 @@ export class SubmitForm extend React.Component {
 	}
 	
 }
-export SubmitForm = reduxForm({
-	form: 'submit',  //a unique name for this form
+export const SubmitFormContainer = reduxForm({
+	form: 'submitHaiku',  //a unique name for this form
 	fields: ['haikuLine1', 'haikuLine2', 'haikuLine3', 'haikuTheme'] // all the fields in the form
 })(SubmitForm);
-
-export default SubmitForm;
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-export default class Haiku extends React.Component {
-	constructor(props) {
-		super(props);
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-	}
-	render() {
-		return <main>
-			<h1 className = "mainHaiku">{this.props.haikuLine1}</h1>	
-			<h1 className = "mainHaiku">{this.props.haikuLine2}</h1>	
-			<h1 className = "mainHaiku">{this.props.haikuLine3}</h1>
-		</main>
-		
-	}
-};
-
-function mapStateToProps(state) {
-	return {
-		haikuLine1: state.getIn(['haikus',state.get('currentId'),'haikuLine1']),
-		haikuLine2: state.getIn(['haikus',state.get('currentId'),'haikuLine2']),
-		haikuLine3: state.getIn(['haikus',state.get('currentId'),'haikuLine3'])
-	};
-}
-
-export const HaikuContainer = connect(mapStateToProps)(Haiku);
-*/

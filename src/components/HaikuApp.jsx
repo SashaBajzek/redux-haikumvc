@@ -4,9 +4,10 @@ import {List, Map} from 'immutable';
 import {connect} from 'react-redux';
 import {HaikuContainer} from './Haiku';
 import {MoreButtonContainer} from './MoreButton';
-import SubmitButtonContainer from './SubmitButton';
+import {SubmitButtonContainer} from './SubmitButton';
 import {SubmitHaikuModalContainer} from './SubmitHaikuModal';
 import * as actionCreators from '../action_creators';
+
 
 export class HaikuApp extends React.Component {
 	
