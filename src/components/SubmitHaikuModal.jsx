@@ -7,26 +7,13 @@ import {SubmitFormContainer} from './SubmitForm';
 import { initialize } from 'redux-form';
 
 export class SubmitHaikuModal extends React.Component {
-	/*
-	getValidationStateLine1and3() {
-		const length = this.state.value.length;
-    if (length > 5) return 'success';
-    else return 'error';
-	},
-		
-	handleChange(e) {
-    this.setState({ value: e.target.value });
-  },
-	*/
 	
 	handleSubmit(data) {
     console.log('Submission received!', data);
     this.props.dispatch(initialize('submitHaiku', {})); // clear form
   }
 	
-	
 	render() {
-		
 		return   <div>
 			<Modal show={this.props.showModal} onHide={this.props.closeModal}>
  
@@ -35,12 +22,10 @@ export class SubmitHaikuModal extends React.Component {
 						<Modal.Title className="modal-title">CREATE A HAIKU</Modal.Title>
 				</Modal.Header>
 				
-				<SubmitFormContainer onSubmit={this.handleSubmit}/>
+				<SubmitFormContainer onSubmit={this.handleSubmit} {...this.props}/>
 				
 			</Modal>
-		
 		</div>
-		
 	}
 };
 
@@ -50,4 +35,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export const SubmitHaikuModalContainer = connect(mapStateToProps, closeModal)(SubmitHaikuModal);
+export const SubmitHaikuModalContainer = connect(mapStateToProps)(SubmitHaikuModal);

@@ -564,14 +564,13 @@ main:hover,
 	font-weight: 800;
 }
 
-.ng-valid.ng-touched {
+.inputValid {
 	outline-color: green;
 }
 
-.ng-invalid.ng-touched {
+.inputInvalid {
 	outline-color: red;
 }
-
 
 @media only screen and (min-width: 640px) {
 	
