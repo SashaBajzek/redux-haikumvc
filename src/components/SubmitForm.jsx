@@ -46,6 +46,14 @@ export class SubmitForm extends React.Component {
 			}
 		}
 		
+		const canSubmit = () => {
+			if (haikuLine1.error || haikuLine2.error || haikuLine3.error || haikuTheme.error) {
+				return "disabled";
+			} else {
+				return "";
+			}
+		}
+		
 		
 		return <form  name="createHaikuForm" onSubmit={handleSubmit}>
 
@@ -88,11 +96,9 @@ export class SubmitForm extends React.Component {
 				</Modal.Body>
 				<Modal.Footer className="modal-footer">
 					<Button  className="btn btn-default" onClick = {this.props.closeModal}>CLOSE</Button>
-					<Button className="btn btn-primary" type="submit">SUBMIT HAIKU</Button>
+					<Button className={canSubmit() + " btn btn-primary"} type="submit">SUBMIT HAIKU</Button>
 				</Modal.Footer>
 			</form>	
-		
-		
 	}
 	
 }
