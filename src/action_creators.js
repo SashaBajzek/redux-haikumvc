@@ -13,6 +13,13 @@ export function next() {
 	};
 }
 
+export function addHaiku(haiku) {
+	return {
+		type: 'ADD_HAIKU',
+		haiku: haiku
+	};
+}
+
 //Modal Actions
 
 export function setModal() {

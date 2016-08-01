@@ -96,7 +96,8 @@ export class SubmitForm extends React.Component {
 				</Modal.Body>
 				<Modal.Footer className="modal-footer">
 					<Button  className="btn btn-default" onClick = {this.props.closeModal}>CLOSE</Button>
-					<Button className={canSubmit() + " btn btn-primary"} type="submit">SUBMIT HAIKU</Button>
+					<Button className={canSubmit() + " btn btn-primary"} type="submit" onClick = {this.props.closeModal}>SUBMIT HAIKU</Button>
+					
 				</Modal.Footer>
 			</form>	
 	}

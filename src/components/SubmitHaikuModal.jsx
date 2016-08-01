@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {connect} from 'react-redux';
 import {Button, ControlLabel, FormControl, FormGroup, Modal, show, onHide, keyboard, enforceFocus, bsClass, dialogComponentClass, dialogClassName, closeButton} from 'react-bootstrap';
-import closeModal from '../action_creators';
+import {closeModal, addHaiku} from '../action_creators';
 import {SubmitFormContainer} from './SubmitForm';
 import { initialize } from 'redux-form';
 
@@ -10,7 +10,8 @@ export class SubmitHaikuModal extends React.Component {
 	
 	handleSubmit(data) {
     console.log('Submission received!', data);
-    this.props.dispatch(initialize('submitHaiku', {})); // clear form
+    //this.props.dispatch(initialize('submitHaiku', {})); // clear form
+		this.props.addHaiku(data);
   }
 	
 	render() {
@@ -22,7 +23,7 @@ export class SubmitHaikuModal extends React.Component {
 						<Modal.Title className="modal-title">CREATE A HAIKU</Modal.Title>
 				</Modal.Header>
 				
-				<SubmitFormContainer onSubmit={this.handleSubmit} {...this.props}/>
+				<SubmitFormContainer onSubmit={this.handleSubmit.bind(this)} {...this.props}/>
 				
 			</Modal>
 		</div>
