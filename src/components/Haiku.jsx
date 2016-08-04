@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {connect} from 'react-redux';
-import {List, Map} from 'immutable';
+import { connect } from 'react-redux';
+import { List, Map } from 'immutable';
 
 export class Haiku extends React.Component {
 	constructor(props) {
@@ -10,11 +10,10 @@ export class Haiku extends React.Component {
 	}
 	render() {
 		return <main>
-			<h1 className = "mainHaiku">{this.props.haikuLine1}</h1>	
-			<h1 className = "mainHaiku">{this.props.haikuLine2}</h1>	
-			<h1 className = "mainHaiku">{this.props.haikuLine3}</h1>
+			<h1 className="mainHaiku">{this.props.haikuLine1}</h1>	
+			<h1 className="mainHaiku">{this.props.haikuLine2}</h1>	
+			<h1 className="mainHaiku">{this.props.haikuLine3}</h1>
 		</main>
-		
 	}
 };
 

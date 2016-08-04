@@ -1,8 +1,9 @@
 import React from 'react';
-import {reduxForm} from 'redux-form';
-import {Button, ControlLabel, FormControl, FormGroup, Modal} from 'react-bootstrap';
+import { reduxForm } from 'redux-form';
+import { Button, ControlLabel, FormControl, FormGroup, Modal } from 'react-bootstrap';
 import closeModal from '../action_creators';
 
+//Validation for the form fields
 const validate = values => {
 	const errors = {};
 	
@@ -27,17 +28,16 @@ const validate = values => {
 	if(!values.haikuTheme) {
 		errors.haikuTheme = 'Required'
 	}
-	
 	return errors;
 }
-
-
 
 
 export class SubmitForm extends React.Component {
 	render() {
 		const {fields: {haikuLine1, haikuLine2, haikuLine3, haikuTheme}, handleSubmit} = this.props;
 		
+		//Changes the input field's outline-color
+		//Blue for first time touched, green valid, red invalid
 		const validationClass = (field) => {
 			if (field.touched && !field.error) {
 				return 'inputValid';
@@ -46,6 +46,7 @@ export class SubmitForm extends React.Component {
 			}
 		}
 		
+		//Disables the submit button until all fields are valid
 		const canSubmit = () => {
 			if (haikuLine1.error || haikuLine2.error || haikuLine3.error || haikuTheme.error) {
 				return "disabled";
@@ -53,7 +54,6 @@ export class SubmitForm extends React.Component {
 				return "";
 			}
 		}
-		
 		
 		return <form  name="createHaikuForm" onSubmit={handleSubmit}>
 
@@ -106,5 +106,5 @@ export class SubmitForm extends React.Component {
 export const SubmitFormContainer = reduxForm({
 	form: 'submitHaiku',  //a unique name for this form
 	fields: ['haikuLine1', 'haikuLine2', 'haikuLine3', 'haikuTheme'], // all the fields in the form
-	validate
+	validate //add validation
 })(SubmitForm);

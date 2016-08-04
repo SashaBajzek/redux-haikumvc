@@ -1,6 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import openModal from '../action_creators';
 
 export class SubmitButton extends React.Component {
@@ -10,7 +10,7 @@ export class SubmitButton extends React.Component {
 	}
 	render() {
 		return <button className="submit"
-						 onClick = {this.props.openModal}>
+						 onClick={this.props.openModal}>
 			SUBMIT A HAIKU
 			</button>		
 	}

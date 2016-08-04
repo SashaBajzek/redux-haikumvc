@@ -1,16 +1,14 @@
 import {fromJS, List, Map} from 'immutable';
 
-//Main Functions
+//Main Haiku Display Functions
 
 export function setHaikus(state, haikusList) {
-	//Move randomizer out of reducer and into the action, reducer should be pure
-	
+	//Moved randomizer out of reducer and into the action so reducer is pure
 	return state.set('haikusList', fromJS(haikusList))
 		.set('currentId', 0);
 }
 
 export function next(state) {
-	
 	var totalHaikus = state.get('haikusList').size - 1;
 	
 	if (state.get('currentId') < totalHaikus){
@@ -26,7 +24,6 @@ export function next(state) {
 		currentId => 0
 		);
 	}
-	
 	return state;
 };
 
@@ -37,7 +34,7 @@ export function addHaiku(state, haiku) {
 }
 
 
-//Modal Functions
+//Add Haiku Modal Functions
 
 export function setModal(state) {	
 	return state.set('showModal', false);

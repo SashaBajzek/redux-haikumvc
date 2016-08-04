@@ -1,3 +1,4 @@
+//Feels like a weird place to put the shuffle???
 var shuffle = function (array) {
 		var currentIndex = array.length, temporaryValue, randomIndex;
 		//While there remain elements to shuffle
@@ -14,8 +15,7 @@ var shuffle = function (array) {
 	};
 
 
-
-//Main Actions
+//Main Haiku Display Actions
 
 export function setHaikus(haikusList) {
 	return {
@@ -37,7 +37,7 @@ export function addHaiku(haiku) {
 	};
 }
 
-//Modal Actions
+//Add Haiku Modal Actions
 
 export function setModal() {
 	return {

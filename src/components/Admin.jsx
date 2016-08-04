@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {connect} from 'react-redux';
-import {List, Map} from 'immutable';
+import { connect } from 'react-redux';
+import { List, Map } from 'immutable';
 
 export class Admin extends React.Component {
 	constructor(props) {
@@ -12,11 +12,9 @@ export class Admin extends React.Component {
 	render() {
 		return <div className="adminPage">
 				<div className="admin"> 
-					
 					<button className="btn btn-danger">Delete this Haiku</button>
 				</div>
 			</div>
-		
 	}
 };
 

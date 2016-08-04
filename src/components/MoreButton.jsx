@@ -1,6 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import next from '../action_creators';
 
 export class MoreButton extends React.Component {
@@ -9,8 +9,8 @@ export class MoreButton extends React.Component {
 		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 	}
 	render() {
-		return <button className = "more"
-						 			onClick = {this.props.next} >
+		return <button className="more"
+						 			onClick={this.props.next} >
 			MORE HAIKUS
 		</button>
 	}
