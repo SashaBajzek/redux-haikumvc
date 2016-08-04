@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route} from 'react-router';
 import {fromJS, List, Map} from 'immutable';
 import makeStore from './store';
 import {Provider} from 'react-redux';
 import {setHaikus, setModal} from './action_creators';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 
 import {HaikuAppContainer} from './components/HaikuApp';
+import {AdminContainer} from './components/Admin';
 
 /*
 import {startServer} from './src/server';
 */
-
 
 export const store = makeStore();
 
@@ -22,9 +22,6 @@ store.dispatch(setHaikus([{id: 0, haikuLine1: "trying to wake up", haikuLine2: "
 	{id: 3, haikuLine1: "hbo at 6", haikuLine2: "cannot wait for game of thrones", haikuLine3: "winter is coming", haikuTheme: "stormTheme"}]));
 
 store.dispatch(setModal());
-
-
-
 
 /*
 startServer(store);
@@ -36,7 +33,10 @@ require("./stylesheets/style.css");
 	
 ReactDOM.render(
 	<Provider store={store}>
-		<HaikuAppContainer />
+		<Router history={browserHistory}>
+			<Route path="/" component = {HaikuAppContainer} />
+			<Route path="/admin" component = {AdminContainer} />
+		</Router>
 	</Provider>,
 	document.getElementById('app')
 );
