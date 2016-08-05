@@ -27,8 +27,10 @@ export function next(state) {
 	return state;
 };
 
+
 export function addHaiku(state, haiku) {
-	const haikuId = state.get('haikusList').size;
+	//find next haikuId based on max id
+	const haikuId = state.reduce((maxId, haikuList, id) => Math.max(id, maxId), 0) + 1;
 	const newHaiku = Map({id: haikuId, haikuLine1: haiku.haikuLine1, haikuLine2: haiku.haikuLine2, haikuLine3: haiku.haikuLine3, haikuTheme: haiku.haikuTheme});
 	return state.update('haikusList', (haikusList) => haikusList.push(newHaiku));
 }
