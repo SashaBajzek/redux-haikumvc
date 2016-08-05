@@ -4,7 +4,7 @@ import { fromJS, List, Map } from 'immutable';
 import makeStore from './store';
 import { Provider } from 'react-redux';
 import { setHaikus, setModal } from './action_creators';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link, hashHistory } from 'react-router';
 import { HaikuAppContainer } from './components/HaikuApp';
 import { AdminContainer } from './components/Admin';
 
@@ -29,11 +29,11 @@ startServer(store);
 
 require("./stylesheets/style.css");
 
-//Need to add routing for haiku page vs admin page
+//Trying to add routing for haiku page vs admin page
 	
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
+		<Router history={hashHistory}>
 			<Route path="/" component={HaikuAppContainer} />
 			<Route path="/admin" component={AdminContainer} />
 		</Router>
