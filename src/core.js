@@ -70,3 +70,11 @@ function findHaikuIndex(state, haikuId) {
 }
 
 */
+
+export function deleteHaiku(state, haikuId) {
+	return state.update('haikusList',
+										 (haikusList) => haikusList.filterNot(
+												(haiku) => haiku.get('id') === haikuId
+	)
+										 );
+}

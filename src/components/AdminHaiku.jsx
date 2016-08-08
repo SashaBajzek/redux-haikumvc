@@ -13,7 +13,7 @@ export class AdminHaiku extends React.Component {
 			<p>{this.props.haikuLine1}</p>
 			<p>{this.props.haikuLine2}</p>
 			<p>{this.props.haikuLine3}</p>
-			<button className="btn btn-danger">Delete this Haiku</button>
+			<button className="btn btn-danger" onClick={() => this.props.deleteHaiku(this.props.id)}>Delete this Haiku</button>
 		</li>
 	}
 }

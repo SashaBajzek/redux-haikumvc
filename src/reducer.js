@@ -1,5 +1,5 @@
 import { fromJS, List, Map } from 'immutable';
-import { next, setHaikus, setModal, openModal, closeModal, addHaiku } from './core';
+import { next, setHaikus, setModal, openModal, closeModal, addHaiku, deleteHaiku } from './core';
 
 export function reducerHaikus(state = Map(), action) {
 	switch (action.type) {
@@ -10,8 +10,7 @@ export function reducerHaikus(state = Map(), action) {
 		case 'ADD_HAIKU':
 			return addHaiku(state, action.haiku);
 		case 'DELETE_HAIKU':
-			//return deleteHaiku(state, action.haikuId);
-			return state;
+			return deleteHaiku(state, action.haikuId);
 	}
 	return state;
 }
