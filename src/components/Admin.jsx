@@ -1,7 +1,8 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import { List, Map } from 'immutable';
+import { List, Map, toJS } from 'immutable';
+import { AdminHaiku } from './AdminHaiku';
 
 export class Admin extends React.Component {
 	constructor(props) {
@@ -10,35 +11,25 @@ export class Admin extends React.Component {
 	}
 	
 	render() {
-		return <div className="adminPage">
-				<div className="admin"> 
-				
-					
-					
-					<button className="btn btn-danger">Delete this Haiku</button>
-				</div>
-			</div>
+		return <div>
+			<ul className="adminPage">
+				{this.props.haikusList.toJS().map(haiku =>
+					<AdminHaiku key={haiku.id}
+											haikuLine1={haiku.haikuLine1}
+											haikuLine2={haiku.haikuLine2}
+											haikuLine3={haiku.haikuLine3}
+											id={haiku.id}/>	
+				)}
+			</ul>
+			
+		</div>		
 	}
 };
 
 function mapStateToProps(state) {
 	return {
-		haikuList: state.haikus.get('haikuList')
+		haikusList: state.haikus.get('haikusList')
 	};
 }
 
 export const AdminContainer = connect(mapStateToProps)(Admin);
-
-/*
-			<div class="adminPage" ng-show="isLoggedIn()">
-				<div class="admin" ng-repeat="haiku in haikus"> 
-					<p>{{haiku.haikuLine1}},</p>
-					<p>{{haiku.haikuLine2}},</p>
-					<p>{{haiku.haikuLine3}}</p>
-					<button class="btn btn-danger" ng-click="deleteHaiku(haiku)">Delete this Haiku</button>
-				</div>
-			</div>
-			<div ng-hide="isLoggedIn()">
-				<h3>You need to <a href="/#/login">Log In</a> before you can delete a haiku</h3>
-			</div>
-*/
