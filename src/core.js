@@ -62,11 +62,10 @@ export function closeModal(state) {
 
 
 //Admin Functions
-/*
-function findHaikuIndex(state, haikuId) {
-	return state.get('haikus').findIndex(
-		(haiku) => haiku.get('id') === haikuId
-	);
-}
 
-*/
+export function deleteHaiku(state, haikuId) {
+	return state.update('haikusList',
+											(haikusList) => haikusList.filterNot(
+												(haiku) => haiku.get('id') === haikuId)
+										 );
+}
