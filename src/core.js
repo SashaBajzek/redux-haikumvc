@@ -32,7 +32,10 @@ export function addHaiku(state, haiku) {
 	//find next haikuId based on max id
 	const haikuId = state.reduce((maxId, haikuList, id) => Math.max(id, maxId), 0) + 1;
 	const newHaiku = Map({id: haikuId, ...haiku});
-	return state.update('haikusList', (haikusList) => haikusList.push(newHaiku));
+	return state
+		.updateIn(['currentId'], currentId => currentId + 1)
+		.update('haikusList', (haikusList, currentId) => 
+		haikusList.splice(state.get('currentId')+1, 0, newHaiku));
 }
 
 
