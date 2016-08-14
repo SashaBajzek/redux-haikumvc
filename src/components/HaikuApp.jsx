@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { List, Map } from 'immutable';
 import { connect } from 'react-redux';
-import { HaikuContainer } from './Haiku';
-import { MoreButtonContainer } from './MoreButton';
-import { SubmitButtonContainer } from './SubmitButton';
-import { SubmitHaikuModalContainer } from './SubmitHaikuModal';
-import * as actionCreators from '../action_creators';
+import { HaikuContainer } from '../containers/HaikuContainer';
+import { MoreButtonContainer } from '../containers/MoreButtonContainer';
+import { SubmitButtonContainer } from '../containers/SubmitButtonContainer';
+import { SubmitHaikuModalContainer } from '../containers/SubmitHaikuModalContainer';
 
 
 export class HaikuApp extends React.Component {
@@ -20,16 +18,18 @@ export class HaikuApp extends React.Component {
 		return <div className={this.props.haikuTheme + " haikuApp themes"}>
 			<header>
 				<h2 className="brand">HAIKU FOR YOU</h2>	
-				<SubmitButtonContainer {...this.props}/>
+				<SubmitButtonContainer />
 			</header>	
 			<HaikuContainer />
 			<footer>
-				<MoreButtonContainer {...this.props}/>
+				<MoreButtonContainer />
 			</footer>
-			<SubmitHaikuModalContainer {...this.props}/>
+			<SubmitHaikuModalContainer />
 		</div>
 	}
 };
+
+/*
 
 function mapStateToProps(state) {
 	return {
@@ -37,4 +37,6 @@ function mapStateToProps(state) {
 	};
 }
 
-export const HaikuAppContainer = connect(mapStateToProps, actionCreators)(HaikuApp);
+export const HaikuAppContainer = connect(mapStateToProps)(HaikuApp);
+
+*/

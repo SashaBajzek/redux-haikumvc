@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import { List, Map } from 'immutable';
+import { deleteHaiku } from '../action_creators';
 
 export class AdminHaiku extends React.Component {
 	constructor(props) {
@@ -16,4 +16,15 @@ export class AdminHaiku extends React.Component {
 			<button className="btn btn-danger" onClick={() => this.props.deleteHaiku(this.props.id)}>Delete this Haiku</button>
 		</li>
 	}
-}
+};
+
+/*
+
+const dispatchProps = { deleteHaiku };
+
+export const AdminHaikuContainer = connect(
+	null,
+	dispatchProps
+)(AdminHaiku);
+
+*/

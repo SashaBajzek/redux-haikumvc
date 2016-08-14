@@ -5,8 +5,8 @@ import makeStore from './store';
 import { Provider } from 'react-redux';
 import { setHaikus, setModal } from './action_creators';
 import { Router, Route, Link, hashHistory } from 'react-router';
-import { HaikuAppContainer } from './components/HaikuApp';
-import { AdminContainer } from './components/Admin';
+import { HaikuAppContainer } from './containers/HaikuAppContainer';
+import { AdminContainer } from './containers/AdminContainer';
 
 /*
 import {startServer} from './src/server';
@@ -28,8 +28,6 @@ startServer(store);
 */
 
 require("./stylesheets/style.css");
-
-//Trying to add routing for haiku page vs admin page
 	
 ReactDOM.render(
 	<Provider store={store}>

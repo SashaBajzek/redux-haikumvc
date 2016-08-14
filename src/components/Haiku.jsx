@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import { List, Map } from 'immutable';
 
 export class Haiku extends React.Component {
 	constructor(props) {
@@ -17,6 +16,8 @@ export class Haiku extends React.Component {
 	}
 };
 
+/*
+
 function mapStateToProps(state) {
 	return {
 		haikuLine1: state.haikus.getIn(['haikusList', state.haikus.getIn(['currentId']), 'haikuLine1']),
@@ -26,3 +27,5 @@ function mapStateToProps(state) {
 }
 
 export const HaikuContainer = connect(mapStateToProps)(Haiku);
+
+*/

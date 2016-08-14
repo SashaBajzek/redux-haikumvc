@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import { List, Map, toJS } from 'immutable';
-import { AdminHaiku } from './AdminHaiku';
-import * as actionCreators from '../action_creators';
+import { toJS } from 'immutable';
+import { AdminHaikuContainer } from '../containers/AdminHaikuContainer';
 
 export class Admin extends React.Component {
 	constructor(props) {
@@ -15,7 +14,7 @@ export class Admin extends React.Component {
 		return <div>
 			<ul className="adminPage">
 				{this.props.haikusList.toJS().map(haiku =>
-					<AdminHaiku {...this.props}
+					<AdminHaikuContainer 
 											key={haiku.id}
 											haikuLine1={haiku.haikuLine1}
 											haikuLine2={haiku.haikuLine2}
@@ -28,10 +27,14 @@ export class Admin extends React.Component {
 	}
 };
 
+/*
+
 function mapStateToProps(state) {
 	return {
 		haikusList: state.haikus.get('haikusList')
 	};
 }
 
-export const AdminContainer = connect(mapStateToProps, actionCreators)(Admin);
+export const AdminContainer = connect(mapStateToProps)(Admin);
+
+*/

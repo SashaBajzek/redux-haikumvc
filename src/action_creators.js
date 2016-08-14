@@ -1,4 +1,3 @@
-//Feels like a weird place to put the shuffle???
 var shuffle = function (array) {
 		var currentIndex = array.length, temporaryValue, randomIndex;
 		//While there remain elements to shuffle
