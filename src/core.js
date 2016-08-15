@@ -1,4 +1,4 @@
-import {fromJS, List, Map} from 'immutable';
+import {fromJS, List, Map, toJS} from 'immutable';
 
 //Main Haiku Display Functions
 
@@ -30,7 +30,7 @@ export function next(state) {
 
 export function addHaiku(state, haiku) {
 	//find next haikuId based on max id
-	const haikuId = state.reduce((maxId, haikuList, id) => Math.max(id, maxId), 0) + 1;
+	const haikuId = state.get('haikusList').toJS().reduce((maxId, haiku, id) => Math.max(haiku.id, maxId), 0) + 1;
 	const newHaiku = Map({id: haikuId, ...haiku});
 	return state
 		.updateIn(['currentId'], currentId => currentId + 1)
