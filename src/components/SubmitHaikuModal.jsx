@@ -12,6 +12,7 @@ export class SubmitHaikuModal extends React.Component {
 	handleSubmit(data) {
     console.log('Submission received!', data);
 		this.props.addHaiku(data);  //calls addHaiku action
+		this.props.closeModal();
   }
 	
 	render() {
