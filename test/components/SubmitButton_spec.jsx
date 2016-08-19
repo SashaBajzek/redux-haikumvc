@@ -8,6 +8,8 @@ import {
 import {SubmitButton} from '../../src/components/SubmitButton';
 import {expect} from 'chai';
 
+//This is overkill on the testing
+
 describe('SubmitButton', () => {
 	
 	it('renders a button', () => {
@@ -33,7 +35,7 @@ describe('SubmitButton', () => {
     const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
     Simulate.click(buttons[0]);
 
-    // We verify that the next function has been called
+    // We verify that the openModal function has been called
     expect(showModal).to.equal(true);
 	});
 	

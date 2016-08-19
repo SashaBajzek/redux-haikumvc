@@ -8,6 +8,8 @@ import {
 import {MoreButton} from '../../src/components/MoreButton';
 import {expect} from 'chai';
 
+//This is overkill on the testing
+
 describe('MoreButton', () => {
 	
 	it('renders a button', () => {
