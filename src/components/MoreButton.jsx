@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import { next } from '../action_creators';
+//import { connect } from 'react-redux';
+//import { next } from '../action_creators';
 
 export class MoreButton extends React.Component {
 	constructor(props) {
