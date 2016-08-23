@@ -8,11 +8,6 @@ import { initialize } from 'redux-form';
 
 export class SubmitHaikuModal extends React.Component {
 	
-	dumbSubmit (values) {
-			const { mySubmitHandler } = this.props;
-			mySubmitHandler( values );
-		}
-	
 	render() {
 		return   <div>
 			<Modal show={this.props.showModal} onHide={this.props.closeModal}>
@@ -20,7 +15,7 @@ export class SubmitHaikuModal extends React.Component {
 						<button type="button" className="close" onClick = {this.props.closeModal}><span >&times;</span></button>
 						<Modal.Title className="modal-title">CREATE A HAIKU</Modal.Title>
 				</Modal.Header>
-				<SubmitFormContainer onSubmit={ (this.dumbSubmit.bind(this)) } />
+				<SubmitFormContainer onSubmit={ (this.props.mySubmitHandler.bind(this)) } />
 			</Modal>
 		</div>
 	}
