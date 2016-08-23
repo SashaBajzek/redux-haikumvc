@@ -2,18 +2,16 @@ import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import { Button, ControlLabel, FormControl, FormGroup, Modal, show, onHide, keyboard, enforceFocus, bsClass, dialogComponentClass, dialogClassName, closeButton } from 'react-bootstrap';
-import { closeModal, addHaiku } from '../action_creators';
 import { SubmitFormContainer } from '../containers/SubmitFormContainer';
 import { initialize } from 'redux-form';
 
 
 export class SubmitHaikuModal extends React.Component {
 	
-	handleSubmit(data) {
-    console.log('Submission received!', data);
-		this.props.addHaiku(data);  //calls addHaiku action
-		this.props.closeModal();
-  }
+	dumbSubmit (values) {
+			const { mySubmitHandler } = this.props;
+			mySubmitHandler( values );
+		}
 	
 	render() {
 		return   <div>
@@ -22,13 +20,16 @@ export class SubmitHaikuModal extends React.Component {
 						<button type="button" className="close" onClick = {this.props.closeModal}><span >&times;</span></button>
 						<Modal.Title className="modal-title">CREATE A HAIKU</Modal.Title>
 				</Modal.Header>
-				<SubmitFormContainer onSubmit={this.handleSubmit.bind(this)} />
+				<SubmitFormContainer onSubmit={ (this.dumbSubmit.bind(this)) } />
 			</Modal>
 		</div>
 	}
 };
 
 /*
+
+SubmitFormContainer onSubmit={this.handleSubmit.bind(this)}
+
 
 function mapStateToProps(state) {
 	return {

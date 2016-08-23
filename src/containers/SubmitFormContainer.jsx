@@ -34,13 +34,15 @@ const validate = values => {
 }
 
 
-
-
-const dispatchProps = { closeModal };
+const mapDispatchToProps = (dispatch) => ({
+	closeModal: () => {
+		dispatch(closeModal())
+	}
+});
 
 export const SubmitFormContainer = connect(
 	null, 
-	dispatchProps) 
+	mapDispatchToProps) 
 	(reduxForm({
 	form: 'submitHaiku',  //a unique name for this form
 	fields: ['haikuLine1', 'haikuLine2', 'haikuLine3', 'haikuTheme'], // all the fields in the form

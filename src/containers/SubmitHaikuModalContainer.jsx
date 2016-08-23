@@ -7,6 +7,11 @@ import { SubmitHaikuModal } from '../components/SubmitHaikuModal';
 import { initialize } from 'redux-form';
 
 
+const handleSubmit = function(data) {
+	console.log('Submission received!', data);
+		this.props.addHaiku(data);  //calls addHaiku action
+		this.props.closeModal();
+};
 
 function mapStateToProps(state) {
 	return {
@@ -14,6 +19,15 @@ function mapStateToProps(state) {
 	};
 }
 
-const dispatchProps = { closeModal, addHaiku };
+const mapDispatchToProps = (dispatch) => ({
+	closeModal: () => {
+		dispatch(closeModal())
+	},
+	mySubmitHandler: (data) => {
+		console.log('Submission received!', data);
+		dispatch(addHaiku(data));  //calls addHaiku action
+		dispatch(closeModal());
+	}
+});
 
-export const SubmitHaikuModalContainer = connect(mapStateToProps, dispatchProps)(SubmitHaikuModal);
+export const SubmitHaikuModalContainer = connect(mapStateToProps, mapDispatchToProps)(SubmitHaikuModal);
