@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
 import { toJS } from 'immutable';
 import { AdminHaikuContainer } from '../containers/AdminHaikuContainer';
 
@@ -26,15 +25,3 @@ export class Admin extends React.Component {
 		</div>		
 	}
 };
-
-/*
-
-function mapStateToProps(state) {
-	return {
-		haikusList: state.haikus.get('haikusList')
-	};
-}
-
-export const AdminContainer = connect(mapStateToProps)(Admin);
-
-*/

@@ -101,18 +101,3 @@ export class SubmitForm extends React.Component {
 			</form>	
 	}
 }
-
-/*
-
-const dispatchProps = { closeModal };
-
-export const SubmitFormContainer = connect(
-	null, 
-	dispatchProps) 
-	(reduxForm({
-	form: 'submitHaiku',  //a unique name for this form
-	fields: ['haikuLine1', 'haikuLine2', 'haikuLine3', 'haikuTheme'], // all the fields in the form
-	validate //add validation
-})(SubmitForm));
-
-*/

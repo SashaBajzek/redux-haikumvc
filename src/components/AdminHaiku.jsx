@@ -1,7 +1,5 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import { deleteHaiku } from '../action_creators';
 
 export class AdminHaiku extends React.Component {
 	constructor(props) {
@@ -17,14 +15,3 @@ export class AdminHaiku extends React.Component {
 		</li>
 	}
 };
-
-/*
-
-const dispatchProps = { deleteHaiku };
-
-export const AdminHaikuContainer = connect(
-	null,
-	dispatchProps
-)(AdminHaiku);
-
-*/

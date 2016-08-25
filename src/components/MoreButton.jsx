@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-//import { connect } from 'react-redux';
-//import { next } from '../action_creators';
 
 export class MoreButton extends React.Component {
 	constructor(props) {
@@ -15,14 +13,3 @@ export class MoreButton extends React.Component {
 		</button>
 	}
 };
-
-/*
-
-const dispatchProps = { next };
-
-export const MoreButtonContainer = connect(
-	null, 
-	dispatchProps
-)(MoreButton);
-
-*/
