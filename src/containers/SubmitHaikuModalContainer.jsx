@@ -9,15 +9,13 @@ const handleSubmit = function(data) {
 		this.props.closeModal();
 };
 
-function mapStateToProps(state) {
-	return {
-		showModal: state.modal.getIn(['showModal'])
-	};
-}
+const mapStateToProps = (state) => ({
+	showModal: state.modal.getIn(['showModal'])
+});
 
 const mapDispatchToProps = (dispatch) => ({
 	closeModal: () => {
-		dispatch(closeModal())
+		dispatch(closeModal());
 	},
 	mySubmitHandler: (data) => {
 		console.log('Submission received!', data);
