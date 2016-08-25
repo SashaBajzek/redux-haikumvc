@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import { Haiku } from '../components/Haiku';
 
